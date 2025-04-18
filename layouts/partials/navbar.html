@@ -28,6 +28,16 @@
     </a>
 
     {{- $currentPage := . -}}
+
+    {{ $displayThemeToggle := (site.Params.theme.displayToggle | default true) -}}
+    {{ if $displayThemeToggle }}
+      <div class="{{ with hugo.IsMultilingual }}hx:justify-end{{ end }} hx:sticky hx:bottom-0 hx:max-h-(--menu-height) hx:bg-white hx:dark:bg-dark hx:mx-4 hx:py-4 hx:shadow-[0_-12px_16px_#fff] hx:flex hx:items-center hx:gap-2 hx:border-gray-200 hx:dark:border-neutral-800 hx:dark:shadow-[0_-12px_16px_#111] hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none hx:contrast-more:dark:shadow-none hx:border-t" data-toggle-animation="show">
+        {{- with $displayThemeToggle -}}
+          <div class="hx:flex hx:grow hx:flex-col">{{ partial "theme-toggle" }}</div>
+        {{- end -}}
+      </div>
+    {{- end -}}
+
     {{- range .Site.Menus.main -}}
       {{- if eq .Params.type "search" -}}
         {{- partial "search.html" (dict "params" .Params) -}}
