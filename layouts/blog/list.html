@@ -24,7 +24,11 @@
                 {{- $readMore -}}
               </a>
             </p>
-            <p class="hx:opacity-50 hx:text-sm hx:mt-4 hx:leading-7">{{ partial "utils/format-date" .Date }}</p>
+            <p class="hx:opacity-50 hx:text-sm hx:mt-4 hx:leading-7">
+              {{ partial "utils/format-date" .Date }}
+              &emsp;
+              Last modified on {{ partial "utils/format-date" .Lastmod }}
+            </p>
           </div>
         {{ end -}}
       </main>
