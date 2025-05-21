@@ -107,7 +107,7 @@
         --hx-color-primary-700: hsl(var(--primary-hue)var(--primary-saturation)calc(calc(var(--primary-lightness)/50)*39));
         --hx-color-primary-800: hsl(var(--primary-hue)var(--primary-saturation)calc(calc(var(--primary-lightness)/50)*32));
         --hx-color-primary-900: hsl(var(--primary-hue)var(--primary-saturation)calc(calc(var(--primary-lightness)/50)*24));
-        --hx-color-dark: #111
+        --hx-color-dark: var(--hx-color-neutral-800)
     }
 }
 
@@ -503,6 +503,10 @@
 
     .hx\:mt-2 {
         margin-top: calc(var(--hx-spacing)*2)
+    }
+
+    .hx\:mt-3 {
+        margin-top: calc(var(--hx-spacing)*3)
     }
 
     .hx\:mt-4 {
@@ -2658,7 +2662,7 @@ body:where(.dark, .dark *) {
 }
 
 .content :where(h1):not(:where([class~=not-prose], [class~=not-prose] *)) {
-    margin-top: calc(var(--hx-spacing)*2);
+    margin-top: calc(var(--hx-spacing)*8);
     font-size: var(--hx-text-4xl);
     line-height: var(--tw-leading, var(--hx-text-4xl--line-height));
     --tw-font-weight: var(--hx-font-weight-bold);
@@ -2675,7 +2679,7 @@ body:where(.dark, .dark *) {
 .content :where(h2):not(:where([class~=not-prose], [class~=not-prose] *)) {
     margin-top: calc(var(--hx-spacing)*10);
     border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 1px;
+    border-bottom-width: 0px;
     border-color: color-mix(in oklab, var(--hx-color-neutral-200)70%, transparent);
     padding-bottom: calc(var(--hx-spacing)*1);
     font-size: var(--hx-text-3xl);
@@ -2776,8 +2780,10 @@ body:where(.dark, .dark *) {
 
 .content :where(a):not(:where([class~=not-prose], [class~=not-prose] *)) {
     color: var(--hx-color-primary-600);
-    text-decoration-line: underline;
-    text-decoration-thickness: from-font
+}
+
+.content :where(a):not(:where([class~=not-prose],[class~=not-prose] *)):hover {
+    color: var(--hx-color-primary-300);
 }
 
 .content :where(blockquote):not(:where([class~=not-prose], [class~=not-prose] *)) {
@@ -2814,7 +2820,7 @@ body:where(.dark, .dark *) {
     background-color: color-mix(in oklab, var(--hx-color-primary-700)5%, transparent);
     padding-block: calc(var(--hx-spacing)*4);
     --tw-font-weight: var(--hx-font-weight-medium);
-    font-size: .9em;
+    /* font-size: .9em; */
     font-weight: var(--hx-font-weight-medium);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
@@ -3512,7 +3518,7 @@ article details>summary:before {
 .hextra-code-block pre {
     background-color: color-mix(in oklab, var(--hx-color-primary-700)5%, transparent);
     --tw-font-weight: var(--hx-font-weight-medium);
-    font-size: .9em;
+    /* font-size: .9em; */
     font-weight: var(--hx-font-weight-medium);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;

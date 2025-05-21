@@ -23,7 +23,7 @@
         <img class="hx:mr-2 hx:hidden hx:dark:block" src="{{ $logoDarkPath | relURL }}" alt="{{ .Site.Title }}" height="{{ $logoHeight }}" width="{{ $logoWidth }}" />
       {{- end }}
       {{- if (.Site.Params.navbar.displayTitle | default true) }}
-        <span class="hx:mr-2 hx:font-extrabold hx:inline hx:select-none" title="{{ .Site.Title }}">{{- .Site.Title -}}</span>
+        <span class="hx:mr-2 hx:font-extrabold hx:inline hx:select-none hx:text-xl" title="{{ .Site.Title }}">{{- .Site.Title -}}</span>
       {{- end }}
     </a>
 
@@ -55,7 +55,7 @@
             title="{{ or (T .Identifier) .Name | safeHTML }}"
             href="{{ $link }}"
             {{ if $external }}target="_blank" rel="noreferrer"{{ end }}
-            class="hx:text-sm hx:contrast-more:text-gray-700 hx:contrast-more:dark:text-gray-100 hx:relative hx:-ml-2 hx:hidden hx:whitespace-nowrap hx:p-2 hx:md:inline-block {{ $activeClass }}"
+            class="hx:text-lg hx:contrast-more:text-gray-700 hx:contrast-more:dark:text-gray-100 hx:relative hx:-ml-2 hx:hidden hx:whitespace-nowrap hx:p-2 hx:md:inline-block {{ $activeClass }}"
           >
             <span class="hx:text-center">{{ or (T .Identifier) .Name | safeHTML }}</span>
           </a>
@@ -66,11 +66,11 @@
     {{ $displayThemeToggle := (site.Params.theme.displayToggle | default true) -}}
     {{ if $displayThemeToggle }}
       <div
-        class="{{ with hugo.IsMultilingual }}hx:justify-end{{ end }} hx:sticky hx:bottom-0 hx:max-h-(--menu-height) hx:bg-transparent hx:mx-4 hx:py-4 hx:shadow-[0_-12px_16px_#fff] hx:flex hx:items-center hx:gap-2 hx:border-gray-200 hx:dark:border-neutral-800 hx:dark:shadow-[0_-12px_16px_#111] hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none"
+        class="{{ with hugo.IsMultilingual }}hx:justify-end{{ end }} hx:sticky hx:bottom-0 hx:max-h-(--menu-height) hx:bg-transparent  hx:py-4 hx:flex hx:items-center hx:gap-2 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none"
         data-toggle-animation="show"
       >
         {{- with $displayThemeToggle -}}
-          <div class="hx:flex hx:grow hx:flex-col">{{ partial "theme-toggle-button" }}</div>
+          <div class="hx:flex hx:grow hx:flex-col hx:h-7">{{ partial "theme-toggle-button" }}</div>
         {{- end -}}
       </div>
     {{- end -}}
